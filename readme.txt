@@ -17,11 +17,12 @@ Outputs your Blogroll links to a Page or Post. use <code>[wp-openlink]</code> th
 
 1. Enable Link Manager
 2. Shortcode: <code>[wp-openlink]</code>
-3. Thumbnails by Pagepeeker
-4. Use link-rating as {Click_Count}
-5. Order by rating DESC
-6. Most simple code as i can
-7. TODO
+3. Auto Thumbnails
+4. Use {link-rating} as {Click_Count}
+5. Order by {link-rating} DESC
+6. Less 100 lines code
+7. No additional setting
+8. TODO
 
 More information please visit my site: [www.xiaomac.com](http://www.xiaomac.com/201312193.html).
 
