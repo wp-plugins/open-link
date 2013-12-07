@@ -5,7 +5,7 @@ Donate link: https://me.alipay.com/playes
 Tags: china, chinese, afly, link, blogroll, friend, site
 Requires at least: 3.0
 Tested up to: 3.7.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -40,5 +40,8 @@ Free Website Thumbnails powered by [Pagepeeker](http://www.pagepeeker.com/).
 
 == Changelog ==
 
+= 1.0.1 =
+* 增加模块显示更新时间和点击次数
+
 = 1.0.0 =
-* first version
+* 第一个版本

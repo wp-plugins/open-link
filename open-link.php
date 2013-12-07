@@ -1,12 +1,12 @@
 <?php
 /*
 Plugin Name: Open Link
-Version: 1.0.0
+Version: 1.0.1
 Plugin URI: http://www.xiaomac.com/201312193.html
 Description: Outputs your Blogroll links to a Page or Post. use <code>[wp-openlink]</code> then you can get all your Wordpress links/Blogrolls. 
 Author: Afly
 Author URI: http://www.xiaomac.com/
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPL v2 - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 */
 
@@ -76,6 +76,16 @@ function open_update_link_editied($link_ID) {
 add_action( 'admin_menu' , 'open_link_advanced_meta_box_remove' );
 function open_link_advanced_meta_box_remove() {
 	remove_meta_box('linkadvanceddiv', 'link', 'normal');
+}
+
+add_action('admin_head', 'open_link_advanced_meta_box_add');
+function open_link_advanced_meta_box_add() {
+    add_meta_box('open_link_box','Open Link Box','open_link_advanced_meta_box_add_content','link','side');
+}
+function open_link_advanced_meta_box_add_content($link) {
+    if (!empty($link->link_id)){
+    	echo "Updated: ".$link->link_updated."<br>Clicked: ".$link->link_rating;
+	}
 }
 
 ?>
