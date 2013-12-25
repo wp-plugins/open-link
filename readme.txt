@@ -24,7 +24,7 @@ Outputs your Blogroll links to a Page or Post. use <code>[wp-openlink]</code> th
 7. No additional setting
 8. TODO
 
-More information please visit my site: [www.xiaomac.com](http://www.xiaomac.com/201312193.html).
+More information please visit my site: [www.xiaomac.com](http://www.xiaomac.com/).
 
 Free Website Thumbnails powered by [Pagepeeker](http://www.pagepeeker.com/).
 
