@@ -6,9 +6,17 @@ Plugin URI: http://www.xiaomac.com/201312193.html
 Description: Outputs your Blogroll links to a Page or Post. use <code>[wp-openlink]</code> then you can get all your Wordpress links/Blogrolls. 
 Author: Afly
 Author URI: http://www.xiaomac.com/
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPL v2 - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+Text Domain: open-link
+Domain Path: /lang
 */
+
+//init
+add_action('admin_init', 'open_link_init', 1);
+function open_link_init() {
+	load_plugin_textdomain( 'open-link', '', dirname( plugin_basename( __FILE__ ) ) . '/lang' );
+}
 
 //tracker
 add_action('init', 'open_link_track_init', 1);
@@ -45,7 +53,7 @@ function open_list_bookmarks($args=''){
 		$output .= '<h4 class="link_cate_title">'.$cat->name.'</h4>';
 		$output .= '<div id="link_cate_'.$cat->term_id.'">'. open_walk_bookmarks($bookmarks, $r) . '</div>';
 	}
-	echo $output;
+	return $output;
 }
 
 function open_walk_bookmarks($bookmarks, $args=''){
@@ -64,27 +72,25 @@ function open_walk_bookmarks($bookmarks, $args=''){
 }
 
 //you may want orderby: updated
-add_action('edit_link', 'open_update_link_editied');
-add_action('add_link', 'open_update_link_editied');
-function open_update_link_editied($link_ID) {
+add_action('edit_link', 'open_link_edit');
+add_action('add_link', 'open_link_edit');
+function open_link_edit($link_ID) {
     global $wpdb;
     $sql = "update ".$wpdb->links." set link_updated = NOW() where link_id = " . $link_ID . ";";
     $wpdb->query($sql);
 }
 
 //disabled the default rating select, use it for click_count
-add_action( 'admin_menu' , 'open_link_advanced_meta_box_remove' );
-function open_link_advanced_meta_box_remove() {
+add_action('admin_menu', 'open_link_meta_box');
+function open_link_meta_box() {
 	remove_meta_box('linkadvanceddiv', 'link', 'normal');
+    add_meta_box('open_link_box',__('Open Link Box','open-link'),'open_link_meta_box_info','link','side');
 }
-
-add_action('admin_head', 'open_link_advanced_meta_box_add');
-function open_link_advanced_meta_box_add() {
-    add_meta_box('open_link_box','Open Link Box','open_link_advanced_meta_box_add_content','link','side');
-}
-function open_link_advanced_meta_box_add_content($link) {
+function open_link_meta_box_info($link) {
     if (!empty($link->link_id)){
-    	echo "Updated: ".$link->link_updated."<br>Clicked: ".$link->link_rating;
+    	echo sprintf(__('Last updated: %s'),$link->link_updated)."<br>".sprintf(__('Clicked: %s','open-link'),$link->link_rating);
+	}else{
+		echo __('None');
 	}
 }
 
