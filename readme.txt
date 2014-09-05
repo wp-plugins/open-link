@@ -1,4 +1,4 @@
-=== Open Link ===
+ï»¿=== Open Link ===
 
 Contributors: playes
 Donate link: https://me.alipay.com/playes
@@ -41,10 +41,10 @@ Free Website Thumbnails powered by [Pagepeeker](http://www.pagepeeker.com/).
 == Changelog ==
 
 = 1.0.2 =
-* Ğ¡ĞŞÕı
+* å°ä¿®æ­£
 
 = 1.0.1 =
-* Ôö¼ÓÄ£¿éÏÔÊ¾¸üĞÂÊ±¼äºÍµã»÷´ÎÊı
+* å¢åŠ æ¨¡å—æ˜¾ç¤ºæ›´æ–°æ—¶é—´å’Œç‚¹å‡»æ¬¡æ•°
 
 = 1.0.0 =
-* µÚÒ»¸ö°æ±¾
+* ç¬¬ä¸€ä¸ªç‰ˆæœ¬
